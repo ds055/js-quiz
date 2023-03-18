@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,30 +11,40 @@ HTML
     <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Gloria+Hallelujah&family=Rye&display=swap" rel="stylesheet">
     <title>Test</title>
 </head>
-    <body>
+    <body> 
         <header>
-            <div class="button">
+            <div class="mybutton play-btn">
                 <button>Play</button>
             </div>
             <div id="title">
                 <h2>Ye Olde Fantasy Quiz</h2>
             </div>
-            <div class="button">
+            <div class="mybutton score-btn">
                 <button>Scoreboard</button>
             </div>
             
         </header>
     <main>
         <div id="background">
-            <div id="bernard-box">
+            <!-- <div id="bernard-box">
                 <p>Welcome to the tavern, weary traveler!</p>
                 <div id="bernard-img">
                     <img src="./assets/pictures/bernard-welcome.png">
                 </div>
+            </div> -->
+            <div id="game-box">
+                <div class= "timer">
+                    <p id="timer-display">00</p>
+                </div>
+                <div class="question-box">
+                    <p>How much wood could a woodchuck chuck?</p>
+                </div>
+                <div class="answer-box">
+                </div>
             </div>
         </div>
     </main>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/scripts/script.js"></script>
     </body>
 </html>

@@ -1,5 +1,15 @@
-var questionBank = [
+const bernardBox = $("#bernard-box");
+const playButton = $(".play-btn");
+const scoreboardButton = $(".score-btn");
+const gameBox = $("#game-box");
+const timer = $("#timer-display");
 
+
+var timerStart = 60;
+var timerCountDown;
+var gameTimer;
+
+var questionBank = [
     qOne = {
         question: "While the word 'friend' opens the door to the mines of Moria in the Fellowship of the Ring, what language must it be spoken in?",
         answers: ["dwarvish", "common tongue", "elvish", "black tongue"],
@@ -59,26 +69,95 @@ var questionBank = [
         answers: ["Stark", "Greyjoy", "Lannister", "Baratheon"],
         correctIndex: 1
     }
-
-
 ]
 
+playButton.on("click", playGame);
 
+// TODO: set display to "none", disable play button
+function playGame() {
+    bernardBox.hide();
+    gameBox.css("display", "flex");
+    startTimer();
+}
 
-// startQuiz() {
+function startTimer() {
+    timerCountDown = timerStart;
+    gameTimer = setInterval(function () {
+        timerCountDown--;
+        timer.text(timerCountDown.toString());
+        if (timerCountDown <= 0) {
+            clearInterval(gameTimer);
+            endGame();
+            return;
+        }
+    }, 1000)
+}
 
-// }
+function endGame() {
+    //end time interval         clearInterval(timerInterval);
+    //disable gamebox
+    //enable score entry
+}
 
-// Start timer
-// Display Next question
-// 
+function nextQuestion() {
+    //increase question index     
+    //display question
+    //for loop to display answers
+    // for (var i = 0; i < todos.length; i++) {
+//     var todo = todos[i];
 
+//     var li = document.createElement("li");
+//     li.textContent = todo;
+//     li.setAttribute("data-index", i);
 
+//     var button = document.createElement("button");
+//     button.textContent = "Complete ✔️";
 
+//     li.appendChild(button);
+//   }
+}
 
+function postScore() {
+// function init() {
+//     // Get stored todos from localStorage
+//     var storedTodos = JSON.parse(localStorage.getItem("todos"));
+  
+//     // If todos were retrieved from localStorage, update the todos array to it
+//     if (storedTodos !== null) {
+//     }
+  
+//     // This is a helper function that will render todos to the DOM
+//     renderTodos();
+//   }
+// signUpButton.addEventListener("click", function(event) {
+//     event.preventDefault();
+    
+//     // create user object from submission
+//     var user = {
+//       firstName: firstNameInput.value.trim(),
+//       lastName: lastNameInput.value.trim(),
+//       email: emailInput.value.trim(),
+//       password: passwordInput.value.trim()
+//     };
+  
+//     // set new submission to local storage 
+//     localStorage.setItem("user", JSON.stringify(user));
+    
+//   });
+}
 
-
-
+function getScore() {
+   //ar email = localStorage.getItem("email");
+//     var password = localStorage.getItem("password");
+  
+//     if (!email || !password) {
+//       return;
+//     }
+  
+//     userEmailSpan.textContent = email;
+//     userPasswordSpan.textContent = password;
+//   }
+}
 
 
 
@@ -89,16 +168,6 @@ var questionBank = [
 
 
 /* 
-var  questions = [
-    {
-        questionText: "What's your favorite color?",
-        questionChoices: ["red", "blue", "green"],
-        answer: 2
-    }
-var time = 100; 
-var timerEl = document.querySelector("#time-el")
-var questionIndex = 0;
-
 
 function displayQuestion() {
     main.innerHTML= "";
@@ -117,33 +186,4 @@ function displayQuestion() {
     questionIndex++;
 
 }
-
-startBtnEl.addEventListener("click", function (event){
-    mainEl.innerHTML = ""
-})
-
-    interval = setInterval(function() {
-        time--; 
-        timerEl.textContent = `Time: ${time}`;
-        if (time <= 0) {
-            clearInterval(interval);
-            endGame();
-            return;
-        }
-    }, 1000);
-
-    displayQuestion();
-
-
-    mainEl.addEvenetListerner("click", function(event)) {
-        var target = event.target
-
-        if (target.getAttribute("class"))
-    }
-
-    function endGame() {
-
-    }
-
-
 */
