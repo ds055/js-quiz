@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz High Scores</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Gloria+Hallelujah&family=Rye&display=swap" rel="stylesheet">
+    <title>High Scores</title>
 </head>
-<body>
-    
-
+    <body> 
+        <audio id="audio">
+            <source src="./assets/audio/crowd-cheer.mp3" type="audio/mp3">
+        </audio>
+        <header>
+            <div class="mybutton">
+                <button class="play-btn">Play</button>
+            </div>
+            <div id="title">
+                <h1>Ye Olde Fantasy Quiz</h1>
+            </div>
+            <div class="mybutton">
+                <button class="score-btn">Scoreboard</button>
+            </div>
+        </header>
+    <main>
+        <div id="background">
+                <div id="score-entry-container">
+                    <h2>High Score Entry</h2>
+                    <div id="your-score-container">
+                        <h3>Your Score:</h3>
+                        <p>28</p>
+                    </div>
+                    <form id="score-entry">
+                        <input placeholder="Enter Your Initials" maxlength="3"></input>
+                        <button>Submit</button>
+                    </form>
+                </div>
+        </div>
+    </main>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-</body>
+    <script src="./assets/scripts/script.js"></script>
+    </body>
 </html>

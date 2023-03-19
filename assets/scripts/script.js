@@ -3,11 +3,15 @@ const playButton = $(".play-btn");
 const scoreboardButton = $(".score-btn");
 const gameBox = $("#game-box");
 const timer = $("#timer-display");
+const answersList = $(".answers-list");
+const questionBox = $(".question-box")
+const cheerSFX = new Audio("./assets/audio/crowd-cheer.mp3");
 
 
-var timerStart = 60;
+var timerStart = 99;
 var timerCountDown;
-var gameTimer;
+var gameTimerObject;
+var questionIndex = 0;
 
 var questionBank = [
     qOne = {
@@ -75,72 +79,79 @@ playButton.on("click", playGame);
 
 // TODO: set display to "none", disable play button
 function playGame() {
+    $(".play-btn").prop("disabled", true);
     bernardBox.hide();
     gameBox.css("display", "flex");
+    nextQuestion();
     startTimer();
 }
 
 function startTimer() {
     timerCountDown = timerStart;
-    gameTimer = setInterval(function () {
+    gameTimerObject = setInterval(function() {
         timerCountDown--;
         timer.text(timerCountDown.toString());
         if (timerCountDown <= 0) {
-            clearInterval(gameTimer);
             endGame();
             return;
         }
     }, 1000)
 }
 
+function nextQuestion() {
+    var newQuestion = `<p> ${questionBank[questionIndex].question} </p>`;
+    questionBox.append(newQuestion);
+    questionBox.css("display", "flex");
+    for (i = 0; i < questionBank[questionIndex].answers.length; i++){
+        var answer = $("<li></li>");
+        answer.attr("data-index", i);
+        answer.text(`${questionBank[questionIndex].answers[i]}`);
+        answersList.append(answer);
+    };
+}
+
+answersList.on("click", answerQuestion);
+
+function answerQuestion(e) {
+    e.stopPropagation();
+    if($(e.target).attr("data-index") == questionBank[questionIndex].correctIndex) {
+        timerCountDown += 10;
+    }
+    else {
+        timerCountDown -= 5;
+    }
+    $(questionBox).children().remove();
+    $(answersList).children().remove();
+    questionIndex++;
+    console.log(questionIndex);
+    console.log(questionBank.length)
+    if ((questionIndex + 1) > questionBank.length)
+    {
+        endGame();
+    }
+    else {
+        nextQuestion();
+    }
+}
+
 function endGame() {
-    //end time interval         clearInterval(timerInterval);
-    //disable gamebox
+    console.log("end game")
+    clearInterval(gameTimerObject);
+    questionBox.css("display", "none");
     //enable score entry
 }
 
-function nextQuestion() {
-    //increase question index     
-    //display question
-    //for loop to display answers
-    // for (var i = 0; i < todos.length; i++) {
-//     var todo = todos[i];
-
-//     var li = document.createElement("li");
-//     li.textContent = todo;
-//     li.setAttribute("data-index", i);
-
-//     var button = document.createElement("button");
-//     button.textContent = "Complete ✔️";
-
-//     li.appendChild(button);
-//   }
-}
-
 function postScore() {
-// function init() {
-//     // Get stored todos from localStorage
-//     var storedTodos = JSON.parse(localStorage.getItem("todos"));
-  
-//     // If todos were retrieved from localStorage, update the todos array to it
-//     if (storedTodos !== null) {
-//     }
-  
-//     // This is a helper function that will render todos to the DOM
-//     renderTodos();
-//   }
+    
+
 // signUpButton.addEventListener("click", function(event) {
 //     event.preventDefault();
-    
-//     // create user object from submission
 //     var user = {
 //       firstName: firstNameInput.value.trim(),
 //       lastName: lastNameInput.value.trim(),
 //       email: emailInput.value.trim(),
 //       password: passwordInput.value.trim()
 //     };
-  
-//     // set new submission to local storage 
 //     localStorage.setItem("user", JSON.stringify(user));
     
 //   });
@@ -149,41 +160,10 @@ function postScore() {
 function getScore() {
    //ar email = localStorage.getItem("email");
 //     var password = localStorage.getItem("password");
-  
 //     if (!email || !password) {
 //       return;
 //     }
-  
 //     userEmailSpan.textContent = email;
 //     userPasswordSpan.textContent = password;
 //   }
 }
-
-
-
-
-
-
-
-
-
-/* 
-
-function displayQuestion() {
-    main.innerHTML= "";
-    var h1El = document.createElement("h1");
-    h1El.textContent = questions[questionIndex].questionText;
-    mainEl.appendChild(h1El);
-    
-    for (var i = 0; i < questions[questionIndex].questionChoice.length; i++) {
-        var buttonEl = document.createElement("button");
-        buttonEl.textContent = questions[questionIndex].questionChoices[i];
-        button add class 
-        mainEl.appendChild(buttonEl);
-    }
-    questions[questionIndex].questionChoices
-    
-    questionIndex++;
-
-}
-*/
