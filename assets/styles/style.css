@@ -1,3 +1,8 @@
+* {
+    --gold: rgb(216, 166, 14)
+}
+
+
 /* TODO: Fix bernard during small screen mode */
 
 body {
@@ -9,7 +14,7 @@ body {
 header {
     display: flex;
     min-height: 10vh;
-    border: 5px solid rgb(202, 166, 2);
+    border: 5px solid var(--gold);
     background-image: url(../pictures/header-background.jpg);
     background-position: 20px;
     flex-wrap: wrap;
@@ -110,7 +115,7 @@ main {
 }
 
 #game-box {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-content: center;
     justify-items: center;
@@ -166,7 +171,7 @@ main {
     padding: 10px;
     margin-top: 30px;
     background-color: rgb(59, 97, 64);
-    border: ridge 5px rgb(216, 166, 14);
+    border: ridge 5px var(--gold);
     box-shadow: 0px 0px 10px 5px rgb(19, 15, 15);
 }
 
@@ -175,7 +180,7 @@ main {
 }
 
 #score-entry-container {
-    display: flex; 
+    display: none; 
     position: relative;
     flex-direction: column;
     height: 100%;
@@ -191,7 +196,7 @@ h2 {
     background-color: rgb(14, 14, 193);
     margin-bottom: 20px; 
     box-shadow: 0px 0px 10px 5px black;
-    border: outset 5px gold; 
+    border: outset var(--gold); 
 }
 
 h3 {
@@ -216,9 +221,9 @@ h3 {
 
 #your-score-container p {
     font-family: "Gloria Hallelujah";
-    font-size: 40px;
+    font-size: 50px;
     color: white;
-    padding: 20px 0px;
+    padding: 15px 0px 5px 0px;
 }
 
 #your-score-container div {
@@ -227,27 +232,64 @@ h3 {
     width: 100%;
 }
 
-#score-entry {
+#score-entry-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     
 }
 
-#score-entry input {
+#score-input {
     font-size: 28px;
     box-shadow: 0px 0px 5px 3px black;
     text-align: center;
 }
 
-#score-entry button {
+#submit-score-btn {
     font-size: 25px;
     margin-top: 25px;
+    border-radius: 10px;
+    background-color: gold;
+    border: outset 5px black;
 }
 
-#score-entry button:hover {
+#submit-score-btn:hover {
     cursor: pointer;
 }
+
+#high-score-list-box {
+    display: flex; 
+    position: relative;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    top: 10vh;
+    background-color: purple;
+    max-height: 430px;
+    box-shadow: 0px 0px 10px 5px black;
+}
+
+#high-score-list-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#high-score-list{
+    font-size: 30px;
+    color: white;
+    list-style-type: number;
+}
+
+#high-score-list li {
+    display: list-item;
+}
+
+
+
+
+
 
 @media screen and (max-width: 980px){
     header {

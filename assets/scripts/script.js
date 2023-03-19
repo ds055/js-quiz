@@ -4,14 +4,21 @@ const scoreboardButton = $(".score-btn");
 const gameBox = $("#game-box");
 const timer = $("#timer-display");
 const answersList = $(".answers-list");
-const questionBox = $(".question-box")
+const questionBox = $(".question-box");
+const scoreInput = $("#score-input")
+const submitScoreBtn = $("#submit-score-btn")
+const scoreEntryBox = $("#score-entry-container");
+const yourScoreCont = $("#your-score-container")
+
 const cheerSFX = new Audio("./assets/audio/crowd-cheer.mp3");
 
 
-var timerStart = 99;
+
+var timerStart = 60;
 var timerCountDown;
 var gameTimerObject;
 var questionIndex = 0;
+var gamePlayed = false;
 
 var questionBank = [
     qOne = {
@@ -20,74 +27,87 @@ var questionBank = [
         correctIndex: 2
     },
 
-    qTwo = {
-        question: "In the Discworld series, what is Death's favorite animal?",
-        answers: ["cats", "rats", "ravens", "dogs"],
-        correctIndex: 0
-    },
+    // qTwo = {
+    //     question: "In the Discworld series, what is Death's favorite animal?",
+    //     answers: ["cats", "rats", "ravens", "dogs"],
+    //     correctIndex: 0
+    // },
 
-    qThree = {
-        question: "In Harry Potter and the Sorceror's Stone, what word backwards is the name bestowed upon a mirror that will show you what you want most?",
-        answers: ["wish", "desire", "treasure", "fortune"],
-        correctIndex: 1
-    },
+    // qThree = {
+    //     question: "In Harry Potter and the Sorceror's Stone, what word backwards is the name bestowed upon a mirror that will show you what you want most?",
+    //     answers: ["wish", "desire", "treasure", "fortune"],
+    //     correctIndex: 1
+    // },
 
-    qFour = {
-        question: "In the Wheel of Time series, what is the half of the power that males can wield?",
-        answers: ["Saidar", "Callandor", "Callaondir", "Saidin"],
-        correctIndex: 3
-    },
+    // qFour = {
+    //     question: "In the Wheel of Time series, what is the half of the power that males can wield?",
+    //     answers: ["Saidar", "Callandor", "Callaondir", "Saidin"],
+    //     correctIndex: 3
+    // },
 
-    qFive = {
-        question: "What mythical group does Kvothe seek after they murdered his parents in The Name of the Wind?",
-        answers: ["Fae", "Severan", "Edema", "Chandrian"],
-        correctIndex: 3
-    },
+    // qFive = {
+    //     question: "What mythical group does Kvothe seek after they murdered his parents in The Name of the Wind?",
+    //     answers: ["Fae", "Severan", "Edema", "Chandrian"],
+    //     correctIndex: 3
+    // },
 
-    qSix = {
-        question: "In the Sword of Truth series, Kahlan Amnell possesses the power of what magical order of women?",
-        answers: ["Bone Readers", "Mord-sith", "Confessors", "Gars"],
-        correctIndex: 2
-    },
+    // qSix = {
+    //     question: "In the Sword of Truth series, Kahlan Amnell possesses the power of what magical order of women?",
+    //     answers: ["Bone Readers", "Mord-sith", "Confessors", "Gars"],
+    //     correctIndex: 2
+    // },
 
-    qSeven = {
-        question: "What is the surname of the main family of children who enter Narnia in The Lion, The Witch, and the Wardrobe?",
-        answers: ["Pevensie", "Kirke", "Scrubb", "Pole"],
-        correctIndex: 0
-    },
+    // qSeven = {
+    //     question: "What is the surname of the main family of children who enter Narnia in The Lion, The Witch, and the Wardrobe?",
+    //     answers: ["Pevensie", "Kirke", "Scrubb", "Pole"],
+    //     correctIndex: 0
+    // },
 
-    qEight = {
-        question: "Bartimaeus, from the Bartimaeus Sequence, belongs to which class of demon?",
-        answers: ["Afrit", "Naeryan", "Jabor", "Djinn"],
-        correctIndex: 3
-    },
+    // qEight = {
+    //     question: "Bartimaeus, from the Bartimaeus Sequence, belongs to which class of demon?",
+    //     answers: ["Afrit", "Naeryan", "Jabor", "Djinn"],
+    //     correctIndex: 3
+    // },
 
-    qNine = {
-        question: "In Redwall, young mouse monk Matthias must confront a venomous adder named what?",
-        answers: ["Clooney", "Asmodeus", "Vilu", "Tsarmina"],
-        correctIndex: 1
-    },
+    // qNine = {
+    //     question: "In Redwall, young mouse monk Matthias must confront a venomous adder named what?",
+    //     answers: ["Clooney", "Asmodeus", "Vilu", "Tsarmina"],
+    //     correctIndex: 1
+    // },
 
-    qTen = {
-        question: "Which house bears the motto 'We do not Sow' in the Song of Ice and Fire series?",
-        answers: ["Stark", "Greyjoy", "Lannister", "Baratheon"],
-        correctIndex: 1
-    }
+    // qTen = {
+    //     question: "Which house bears the motto 'We do not Sow' in the Song of Ice and Fire series?",
+    //     answers: ["Stark", "Greyjoy", "Lannister", "Baratheon"],
+    //     correctIndex: 1
+    // }
 ]
 
 playButton.on("click", playGame);
 
 // TODO: set display to "none", disable play button
 function playGame() {
-    $(".play-btn").prop("disabled", true);
-    bernardBox.hide();
-    gameBox.css("display", "flex");
-    nextQuestion();
-    startTimer();
+    if (gamePlayed === false){
+        $(".play-btn").prop("disabled", true);
+        startTimer();
+        gamePlayed = true;
+        bernardBox.hide();
+        gameBox.css("display", "flex");
+        nextQuestion();
+    }else{
+        timerCountDown = timerStart;
+        scoreEntryBox.css("display", "none");
+        gamePlayed = false;
+        questionIndex = 0;
+        yourScoreCont.children().remove();
+        playGame();
+    }
+    
+
 }
 
 function startTimer() {
     timerCountDown = timerStart;
+    timer.text(timerCountDown.toString());
     gameTimerObject = setInterval(function() {
         timerCountDown--;
         timer.text(timerCountDown.toString());
@@ -135,35 +155,33 @@ function answerQuestion(e) {
 }
 
 function endGame() {
-    console.log("end game")
     clearInterval(gameTimerObject);
-    questionBox.css("display", "none");
-    //enable score entry
+    gameBox.css("display", "none");
+    scoreEntryBox.css("display", "flex");
+    var endScore = $("<p></p>");
+    endScore.text(timerCountDown);
+    yourScoreCont.append(endScore);
+    $(".play-btn").prop("disabled", false);
+    //enable bernard
 }
 
-function postScore() {
-    
+submitScoreBtn.on("click", postScore);
 
-// signUpButton.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     var user = {
-//       firstName: firstNameInput.value.trim(),
-//       lastName: lastNameInput.value.trim(),
-//       email: emailInput.value.trim(),
-//       password: passwordInput.value.trim()
-//     };
-//     localStorage.setItem("user", JSON.stringify(user));
-    
-//   });
-}
 
-function getScore() {
-   //ar email = localStorage.getItem("email");
-//     var password = localStorage.getItem("password");
-//     if (!email || !password) {
-//       return;
-//     }
-//     userEmailSpan.textContent = email;
-//     userPasswordSpan.textContent = password;
-//   }
+
+function postScore(e) {
+    e.preventDefault();
+
+    var localHighScores = JSON.parse(localStorage.getItem("playerScore")) || [];
+
+
+    var playerScore = {
+        initials: scoreInput.val().trim(),
+        score: timerCountDown
+    };
+
+    localHighScores.push(playerScore);
+
+    localStorage.setItem("playerScore", JSON.stringify(localHighScores));
+    window.location.replace("../../highscores.html");
 }

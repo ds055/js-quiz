@@ -23,21 +23,21 @@
                 <h1>Ye Olde Fantasy Quiz</h1>
             </div>
             <div class="mybutton">
-                <button class="score-btn">Scoreboard</button>
+                <button class="score-btn" onclick="window.location.href='./highscores.html';">Scoreboard</button>
             </div>
             
         </header>
     <main>
         <div id="background">
-            <!-- <div id="bernard-box">
+            <div id="bernard-box">
                 <p>Welcome to the tavern, weary traveler!</p>
                 <div id="bernard-img">
                     <img src="./assets/pictures/bernard-welcome.png">
                 </div>
-            </div> -->
-            <!-- <div id="game-box">
+            </div>
+            <div id="game-box">
                 <div class= "timer">
-                    <p id="timer-display">00</p>
+                    <p id="timer-display"></p>
                 </div>
                 <div class="question-box">
                 </div>
@@ -45,16 +45,15 @@
                     <ul class="answers-list">
                     </ul>
                 </div>
-            </div> -->
+            </div>
                 <div id="score-entry-container">
                     <h2>High Score Entry</h2>
                     <div id="your-score-container">
-                        <h3>Your Score:</h3>
-                        <p>28</p>
+                        <h3>Your Score</h3>
                     </div>
-                    <form id="score-entry">
-                        <input placeholder="Enter Your Initials" maxlength="3"></input>
-                        <button>Submit</button>
+                    <form id="score-entry-form">
+                        <input id="score-input" placeholder="Enter Your Initials" maxlength="3"></input>
+                        <button id="submit-score-btn">Submit</button>
                     </form>
                 </div>
         </div>

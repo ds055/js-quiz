@@ -17,7 +17,7 @@
         </audio>
         <header>
             <div class="mybutton">
-                <button class="play-btn">Play</button>
+                <button class="play-btn-link" onclick="window.location.href='./index.html';">Play</button>
             </div>
             <div id="title">
                 <h1>Ye Olde Fantasy Quiz</h1>
@@ -28,20 +28,16 @@
         </header>
     <main>
         <div id="background">
-                <div id="score-entry-container">
-                    <h2>High Score Entry</h2>
-                    <div id="your-score-container">
-                        <h3>Your Score:</h3>
-                        <p>28</p>
+                <div id="high-score-list-box">
+                    <h2>High Scores</h2>
+                    <div id="high-score-list-container">
+                        <ol id="high-score-list">
+                        </ol>
                     </div>
-                    <form id="score-entry">
-                        <input placeholder="Enter Your Initials" maxlength="3"></input>
-                        <button>Submit</button>
-                    </form>
                 </div>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="./assets/scripts/script.js"></script>
+    <script src="./assets/scripts/highscore-script.js"></script>
     </body>
 </html>
