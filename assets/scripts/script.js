@@ -10,9 +10,10 @@ const submitScoreBtn = $("#submit-score-btn")
 const scoreEntryBox = $("#score-entry-container");
 const yourScoreCont = $("#your-score-container")
 
-const cheerSFX = new Audio("./assets/audio/crowd-cheer.mp3");
-
-
+const fanfare = new Audio("./assets/audio/fanfare.mp3");
+const correctSFX = new Audio("./assets/audio/correct.mp3");
+const incorrectSFX = new Audio("./assets/audio/incorrect.mp3");
+const music = new Audio("./assets/audio/music.mp3");
 
 var timerStart = 60;
 var timerCountDown;
@@ -87,6 +88,9 @@ playButton.on("click", playGame);
 // TODO: set display to "none", disable play button
 function playGame() {
     if (gamePlayed === false){
+        music.volume = .3;
+        music.currentTime = 1;
+        music.play();
         $(".play-btn").prop("disabled", true);
         startTimer();
         gamePlayed = true;
@@ -99,6 +103,10 @@ function playGame() {
         gamePlayed = false;
         questionIndex = 0;
         yourScoreCont.children().remove();
+        answersList.children().remove();
+        questionBox.children().remove();
+        fanfare.pause();
+        fanfare.currentTime = 0;
         playGame();
     }
     
@@ -135,16 +143,16 @@ answersList.on("click", answerQuestion);
 function answerQuestion(e) {
     e.stopPropagation();
     if($(e.target).attr("data-index") == questionBank[questionIndex].correctIndex) {
+        correctSFX.play();
         timerCountDown += 10;
     }
     else {
+        incorrectSFX.play();
         timerCountDown -= 5;
     }
     $(questionBox).children().remove();
     $(answersList).children().remove();
     questionIndex++;
-    console.log(questionIndex);
-    console.log(questionBank.length)
     if ((questionIndex + 1) > questionBank.length)
     {
         endGame();
@@ -156,13 +164,15 @@ function answerQuestion(e) {
 
 function endGame() {
     clearInterval(gameTimerObject);
+    music.pause();
     gameBox.css("display", "none");
     scoreEntryBox.css("display", "flex");
     var endScore = $("<p></p>");
     endScore.text(timerCountDown);
     yourScoreCont.append(endScore);
     $(".play-btn").prop("disabled", false);
-    //enable bernard
+    fanfare.volume = .3;
+    fanfare.play();
 }
 
 submitScoreBtn.on("click", postScore);

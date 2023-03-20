@@ -73,7 +73,7 @@ main {
 #background {
     display: flex;
     flex: 100%;
-    height: 85vh;
+    height: 88vh;
     background-image: url(../pictures/tavern.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -83,34 +83,33 @@ main {
 
 #bernard-box {
     display: flex;
+    flex-direction: column;
     position: relative;
+    align-items: center;
 }
 
 #bernard-img {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     width: 100%;
-    height: 100%;
     overflow: clip;
 }
 
 #bernard-img img {
     position: relative;
-    top: 20%;
+    top: 5%;
 }
 
 #bernard-box p {
     text-align: center;
-    position: absolute;
-    left: -20%;
-    top: 20%;
     background-color: white;
     font-family: "Gloria Hallelujah";
-    font-size: 30px;
+    font-size: 3vh;
     padding: 15px;
     border-radius: 25px;
     box-shadow: 0px 0px 10px 5px black;
     max-width: 200px;
+    margin-top: 50px;
 }
 
 #game-box {
@@ -127,10 +126,11 @@ main {
 }
 
 #timer-display {
+    margin-top: 20px;
     text-align: center;
     background-color: rgb(173, 222, 244);
     font-family: "Gloria Hallelujah";
-    font-size: 4vh;
+    font-size: 3vh;
     padding: 15px;
     border-radius: 25px;
     box-shadow: 0px 0px 10px 5px black;
@@ -159,7 +159,7 @@ main {
     height: 100%;
     justify-content: space-around;
     padding-top: 50px;
-    font-size: 4vh;
+    font-size: 3vh;
     text-align: center;
     font-family: "Gloria Hallelujah";
     font-weight: 600;
@@ -176,6 +176,7 @@ main {
 
 .answer-box li:hover {
     cursor: pointer;
+    background-color: rgb(104, 161, 112);
 }
 
 #score-entry-container {
@@ -189,7 +190,7 @@ main {
 
 h2 {
     font-family: "Rye";
-    font-size: 50px;
+    font-size: 4vh;
     color: white;
     padding: 20px;
     background-color: rgb(14, 14, 193);
@@ -239,7 +240,7 @@ h3 {
 }
 
 #score-input {
-    font-size: 28px;
+    font-size: 3vh;
     box-shadow: 0px 0px 5px 3px black;
     text-align: center;
 }
@@ -287,9 +288,6 @@ h3 {
 
 
 
-
-
-
 @media screen and (max-width: 980px){
 
     header {
@@ -333,5 +331,21 @@ h3 {
 
     .question-box {
         font-size: 4vh;
+        line-height: 4vh;
     }
+
+    .answer-box {
+        padding-top: 0px;
+    }
+    
+    .question-box {
+        text-align: center;
+        font-size: 3vh; 
+    }
+
+    #timer-display {
+        margin-bottom: 20px;
+        margin-top: 0px;
+    }
+
 }

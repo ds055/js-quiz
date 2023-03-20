@@ -1,8 +1,14 @@
 const highScoreList = $("#high-score-list")
 
+const music = new Audio("./assets/audio/highscore.mp3");
+
 getScore();
 
 function getScore() {
+
+    music.volume = .3;
+    music.play();
+
     var scoreArr = JSON.parse(localStorage.getItem("playerScore")) || [];
 
     console.log(typeof(scoreArr));
