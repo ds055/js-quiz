@@ -290,8 +290,13 @@ h3 {
 
 @media screen and (max-width: 980px){
 
+    #background {
+        height: 86vh;
+    }
+
     header {
         flex-wrap: wrap;
+        padding-bottom: 5px;
     }
 
     h1 {
@@ -300,6 +305,7 @@ h3 {
     
     #title {
         flex: 1 0 100%;
+        padding-bottom: 10px;
     }
 
     header button {
@@ -308,14 +314,13 @@ h3 {
         height: 40px;
         margin: 0px;
         padding: 0px;
-
     }
 
     header button:hover {
         cursor: pointer;
         position: relative;
         top: 0px;
-        height: 50px;
+        height: 40px;
         min-width: 150px;
     }
 
@@ -346,6 +351,11 @@ h3 {
     #timer-display {
         margin-bottom: 20px;
         margin-top: 0px;
+    }
+
+    .answer-box li {
+        padding: 10px;
+        margin-top: 20px;
     }
 
 }

@@ -28,59 +28,59 @@ var questionBank = [
         correctIndex: 2
     },
 
-    // qTwo = {
-    //     question: "In the Discworld series, what is Death's favorite animal?",
-    //     answers: ["cats", "rats", "ravens", "dogs"],
-    //     correctIndex: 0
-    // },
+    qTwo = {
+        question: "In the Discworld series, what is Death's favorite animal?",
+        answers: ["cats", "rats", "ravens", "dogs"],
+        correctIndex: 0
+    },
 
-    // qThree = {
-    //     question: "In Harry Potter and the Sorceror's Stone, what word backwards is the name bestowed upon a mirror that will show you what you want most?",
-    //     answers: ["wish", "desire", "treasure", "fortune"],
-    //     correctIndex: 1
-    // },
+    qThree = {
+        question: "In Harry Potter and the Sorceror's Stone, what word backwards is the name bestowed upon a mirror that will show you what you want most?",
+        answers: ["wish", "desire", "treasure", "fortune"],
+        correctIndex: 1
+    },
 
-    // qFour = {
-    //     question: "In the Wheel of Time series, what is the half of the power that males can wield?",
-    //     answers: ["Saidar", "Callandor", "Callaondir", "Saidin"],
-    //     correctIndex: 3
-    // },
+    qFour = {
+        question: "In the Wheel of Time series, what is the half of the power that males can wield?",
+        answers: ["Saidar", "Callandor", "Callaondir", "Saidin"],
+        correctIndex: 3
+    },
 
-    // qFive = {
-    //     question: "What mythical group does Kvothe seek after they murdered his parents in The Name of the Wind?",
-    //     answers: ["Fae", "Severan", "Edema", "Chandrian"],
-    //     correctIndex: 3
-    // },
+    qFive = {
+        question: "What mythical group does Kvothe seek after they murdered his parents in The Name of the Wind?",
+        answers: ["Fae", "Severan", "Edema", "Chandrian"],
+        correctIndex: 3
+    },
 
-    // qSix = {
-    //     question: "In the Sword of Truth series, Kahlan Amnell possesses the power of what magical order of women?",
-    //     answers: ["Bone Readers", "Mord-sith", "Confessors", "Gars"],
-    //     correctIndex: 2
-    // },
+    qSix = {
+        question: "In the Sword of Truth series, Kahlan Amnell possesses the power of what magical order of women?",
+        answers: ["Bone Readers", "Mord-sith", "Confessors", "Gars"],
+        correctIndex: 2
+    },
 
-    // qSeven = {
-    //     question: "What is the surname of the main family of children who enter Narnia in The Lion, The Witch, and the Wardrobe?",
-    //     answers: ["Pevensie", "Kirke", "Scrubb", "Pole"],
-    //     correctIndex: 0
-    // },
+    qSeven = {
+        question: "What is the surname of the main family of children who enter Narnia in The Lion, The Witch, and the Wardrobe?",
+        answers: ["Pevensie", "Kirke", "Scrubb", "Pole"],
+        correctIndex: 0
+    },
 
-    // qEight = {
-    //     question: "Bartimaeus, from the Bartimaeus Sequence, belongs to which class of demon?",
-    //     answers: ["Afrit", "Naeryan", "Jabor", "Djinn"],
-    //     correctIndex: 3
-    // },
+    qEight = {
+        question: "Bartimaeus, from the Bartimaeus Sequence, belongs to which class of demon?",
+        answers: ["Afrit", "Naeryan", "Jabor", "Djinn"],
+        correctIndex: 3
+    },
 
-    // qNine = {
-    //     question: "In Redwall, young mouse monk Matthias must confront a venomous adder named what?",
-    //     answers: ["Clooney", "Asmodeus", "Vilu", "Tsarmina"],
-    //     correctIndex: 1
-    // },
+    qNine = {
+        question: "In Redwall, young mouse monk Matthias must confront a venomous adder named what?",
+        answers: ["Clooney", "Asmodeus", "Vilu", "Tsarmina"],
+        correctIndex: 1
+    },
 
-    // qTen = {
-    //     question: "Which house bears the motto 'We do not Sow' in the Song of Ice and Fire series?",
-    //     answers: ["Stark", "Greyjoy", "Lannister", "Baratheon"],
-    //     correctIndex: 1
-    // }
+    qTen = {
+        question: "Which house bears the motto 'We do not Sow' in the Song of Ice and Fire series?",
+        answers: ["Stark", "Greyjoy", "Lannister", "Baratheon"],
+        correctIndex: 1
+    }
 ]
 
 playButton.on("click", playGame);
