@@ -8,6 +8,7 @@ function getScore() {
 
     music.volume = .3;
     music.play();
+    music.loop = true;
 
     var scoreArr = JSON.parse(localStorage.getItem("playerScore")) || [];
 

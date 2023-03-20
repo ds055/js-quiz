@@ -142,11 +142,21 @@ answersList.on("click", answerQuestion);
 
 function answerQuestion(e) {
     e.stopPropagation();
+    
+    
     if($(e.target).attr("data-index") == questionBank[questionIndex].correctIndex) {
+        if (correctSFX.play()) {
+            correctSFX.pause();
+            correctSFX.currentTime = 0;
+        }
         correctSFX.play();
         timerCountDown += 10;
     }
-    else {
+    else{
+        if (incorrectSFX.play()) {
+            incorrectSFX.pause();
+            incorrectSFX.currentTime = 0;
+        }
         incorrectSFX.play();
         timerCountDown -= 5;
     }
@@ -193,5 +203,4 @@ function postScore(e) {
     localHighScores.push(playerScore);
 
     localStorage.setItem("playerScore", JSON.stringify(localHighScores));
-    window.location.replace("../../highscores.html");
 }
