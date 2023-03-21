@@ -1,13 +1,16 @@
+/* Global variables */
 * {
     --gold: rgb(216, 166, 14)
 }
 
+/* Body: set background for area present at bottom on some screens */
 body {
     display: flex;
     flex-direction: column;
     background-color: black;
 }
 
+/* Header: full width of screen and 10% height */
 header {
     display: flex;
     justify-content: center;
@@ -19,6 +22,7 @@ header {
     background-position: 20px;
 }
 
+/* Nav Buttons Container */
 .mybutton {
     display: flex;
     justify-content: center;
@@ -26,6 +30,7 @@ header {
     flex: 1;
 }
 
+/* Nav Buttons: sets styling including background */
 header button {
     flex: 0;
     background-image: url(../pictures/button-bg.jpg);
@@ -39,6 +44,7 @@ header button {
     border: 4px solid rgb(64, 40, 3);
 }
 
+/* Nav Button Animations */
 header button:hover {
     cursor: pointer;
     position: relative;
@@ -50,6 +56,7 @@ header button:hover {
     color: white
 }
 
+/* Title Container */
 #title {
     display: flex;
     flex: 2;
@@ -57,6 +64,7 @@ header button:hover {
     align-items: center;
 }
 
+/* Title */
 h1 {
     text-align: center;
     color: white;
@@ -70,6 +78,7 @@ main {
     justify-items: center;
 }
 
+/* Background Container: sets container to 88vh to avoid scrolling on some devices */
 #background {
     display: flex;
     flex: 100%;
@@ -81,6 +90,7 @@ main {
     overflow: hidden;
 }
 
+/* Bernard img and dialogue container */
 #bernard-box {
     display: flex;
     flex-direction: column;
@@ -88,6 +98,7 @@ main {
     align-items: center;
 }
 
+/* Bernard Img Container: clips to allow for desired positioning; align-items to try and fix iphone stretching */
 #bernard-img {
     display: flex;
     align-items: flex-start;
@@ -96,12 +107,14 @@ main {
     overflow: clip;
 }
 
+/* Bernard img: max-height to fit */
 #bernard-img img {
     position: relative;
     max-height: 100%;
     top: 5%;
 }
 
+/* Bernard's Dialogue */
 #bernard-box p {
     text-align: center;
     background-color: white;
@@ -114,6 +127,7 @@ main {
     margin-top: 50px;
 }
 
+/* Game container: Display changed to flex when game starts; contains all game elements: timer, question, answers */
 #game-box {
     display: none;
     flex-direction: column;
@@ -122,11 +136,13 @@ main {
     padding: 15px;
 }
 
+/* Timer container */
 .timer {
     display: flex;
     justify-content: center;
 }
 
+/* Timer on Screen: formatting */
 #timer-display {
     margin-top: 20px;
     text-align: center;
@@ -140,6 +156,7 @@ main {
     margin-bottom: 40px;
 }
 
+/* Question Container: contains questions and answers; display changed to flex on game start */
 .question-box {
     display: none;
     align-content: center;
@@ -155,6 +172,7 @@ main {
     box-shadow: 0px 0px 10px 5px black;
 }
 
+/* Answer Container: container for list where answers will be appended*/
 .answer-box {
     display: flex;
     width: 100%;
@@ -168,6 +186,7 @@ main {
     color: white;
 }
 
+/* Generated Answers: formatting for answers dynamically added */
 .answer-box li {
     padding: 10px;
     margin-top: 30px;
@@ -176,11 +195,13 @@ main {
     box-shadow: 0px 0px 10px 5px rgb(19, 15, 15);
 }
 
+/* Generated Answers: hover animation state*/
 .answer-box li:hover {
     cursor: pointer;
     background-color: rgb(104, 161, 112);
 }
 
+/* High Score Container: contains title and high score entry form */
 #score-entry-container {
     display: none; 
     position: relative;
@@ -188,8 +209,12 @@ main {
     height: 100%;
     align-items: center;
     top: 10vh;
+    background-color: purple;
+    max-height: 380px;
+    box-shadow: 0px 0px 10px 5px black;
 }
 
+/* High Score Container Title */
 h2 {
     text-align: center;
     font-family: "Rye";
@@ -202,18 +227,7 @@ h2 {
     border: outset var(--gold); 
 }
 
-h3 {
-    font-family: "Berkshire Swash";
-    font-size: 40px;
-    color: gold;
-}
-
-#score-entry-container {
-    background-color: purple;
-    max-height: 380px;
-    box-shadow: 0px 0px 10px 5px black;
-}
-
+/* "Your Score" Container */
 #your-score-container {
     display: flex;
     width: 75%;
@@ -222,6 +236,14 @@ h3 {
     margin-bottom: 20px; 
 }
 
+/* High Score Container: "Your Score" text */
+h3 {
+    font-family: "Berkshire Swash";
+    font-size: 40px;
+    color: gold;
+}
+
+/* Game Score Text */
 #your-score-container p {
     font-family: "Gloria Hallelujah";
     font-size: 50px;
@@ -229,12 +251,7 @@ h3 {
     padding: 15px 0px 5px 0px;
 }
 
-#your-score-container div {
-    text-align: center;
-    height: 100%;
-    width: 100%;
-}
-
+/* High Score Entry Form Container */
 #score-entry-form {
     display: flex;
     flex-direction: column;
@@ -242,12 +259,14 @@ h3 {
     
 }
 
+/* Initials Input */
 #score-input {
     font-size: 3vh;
     box-shadow: 0px 0px 5px 3px black;
     text-align: center;
 }
 
+/* Submit Score Button */
 #submit-score-btn {
     font-size: 25px;
     margin-top: 25px;
@@ -256,10 +275,12 @@ h3 {
     border: outset 5px black;
 }
 
+/* Submit Score Button Hover State */
 #submit-score-btn:hover {
     cursor: pointer;
 }
 
+/* High Score Container for High Scores Page */
 #high-score-list-box {
     display: flex;
     flex-direction: column;
@@ -270,6 +291,7 @@ h3 {
     box-shadow: 0px 0px 10px 5px black;
 }
 
+/* High Score Container: holds the ol that the high scores will be dynamically appended to */
 #high-score-list-container {
     display: flex;
     width: 100%;
@@ -278,12 +300,14 @@ h3 {
     padding-left: 20px
 }
 
+/* High Scores list: ol to which scores will be dynamically appended */
 #high-score-list{
     font-size: 30px;
     color: white;
     list-style-type: number;
 }
 
+/* High Scores: li's of high scores dynamically created*/
 #high-score-list li {
     display: list-item;
 }
@@ -292,24 +316,29 @@ h3 {
 
 @media screen and (max-width: 980px){
 
+    /* Shrink background slightly */
     #background {
         height: 86vh;
     }
 
+    /* Wrap header to make nav take up less space */
     header {
         flex-wrap: wrap;
         padding-bottom: 5px;
     }
 
+    /* Shrink main title */
     h1 {
         font-size: 40px;
     }
     
+    /* Prevent title container from shrinking; keep to full length */
     #title {
         flex: 1 0 100%;
         padding-bottom: 10px;
     }
 
+    /* Shrink buttons to make fit in smaller nav */
     header button {
         font-size: 20px;
         min-width: 150px;
@@ -318,6 +347,7 @@ h3 {
         padding: 0px;
     }
 
+    /* Prevent buttons from growing in size as in original hover state */
     header button:hover {
         cursor: pointer;
         position: relative;
@@ -326,40 +356,40 @@ h3 {
         min-width: 150px;
     }
 
-
-
+    /* Align play btn container to bottom */
     .play-btn-box {
         align-self: end;
     }
 
+    /* Align high scores btn container to bottom */
     .score-btn-box{
         justify-self: end;
     }
 
+    /* Shrink question font */
     .question-box {
-        font-size: 4vh;
+        font-size: 3vh;
         line-height: 4vh;
     }
 
+    /* Remove padding to save space for */
     .answer-box {
         padding-top: 0px;
     }
     
-    .question-box {
-        text-align: center;
-        font-size: 3vh; 
-    }
-
+    /* Decrease margins */
     #timer-display {
         margin-bottom: 20px;
         margin-top: 0px;
     }
 
+    /* Shrink padding and margins on answers */
     .answer-box li {
         padding: 10px;
         margin-top: 30px;
     }
 
+    /* Shrink font of high scores */
     #high-score-list {
         font-size: 3.5vh;
     }
