@@ -18,7 +18,7 @@ header {
     min-height: 10vh;
     max-width: 100vw;
     border: 5px solid var(--gold);
-    background-image: url(../pictures/header-background.jpg);
+    background-image: url(../images/header-background.jpg);
     background-position: 20px;
 }
 
@@ -33,7 +33,7 @@ header {
 /* Nav Buttons: sets styling including background */
 header button {
     flex: 0;
-    background-image: url(../pictures/button-bg.jpg);
+    background-image: url(../images/button-bg.jpg);
     font-family: "Rye";
     font-size: 30px;
     font-weight: bolder;
@@ -83,7 +83,7 @@ main {
     display: flex;
     flex: 100%;
     height: 88vh;
-    background-image: url(../pictures/tavern.jpg);
+    background-image: url(../images/tavern.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     justify-content: center;
